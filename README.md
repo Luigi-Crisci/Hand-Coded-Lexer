@@ -29,7 +29,7 @@ For some of this, we have defined some simple regex:
     - *PLUS*: *+*
     - *SUB*: *-*
     - *MUL*: *
-    - *DIV*: *\\*
+    - *DIV*: *\/*
     - *MOD*: *%*
     - *POW*: *^* (optional) 
     - *AND*: *&&*
