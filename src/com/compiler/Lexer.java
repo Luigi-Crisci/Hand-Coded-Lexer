@@ -9,6 +9,7 @@ public class Lexer {
 	private File input;
 	private static HashMap<Integer,String> stringTable;  // la struttura dati potrebbe essere una hash map
 	private int state;
+	private int 3x;
     ..
 
 	public Lexer(){

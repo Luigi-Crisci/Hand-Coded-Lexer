@@ -16,8 +16,8 @@ For some of this, we have defined some simple regex:
 
 - Identifiers: *([a-zA-Z])+[a-zA-Z0-9]**
 - Literals:
-    - *INT:* *(([1-9]+[0-9]\*)|0)*
-    - *FLOAT:* *\b INT (\.[0-9]+)\b* 
+    - *INT:* (([1-9]+[0-9]\*)|0)
+    - *FLOAT:* INT(\.[0-9]+) 
 - Operators: 
     - *AS*: *<--*
     - *EQ*: *=*
