@@ -13,6 +13,7 @@ public class Tester {
 			try {
 				while ((token = lexicalAnalyzer.nextToken()) != null) {
 					System.out.println(token);
+
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -1,8 +1,6 @@
 package com.compiler;
 
-import java.io.EOFException;
 import java.util.HashMap;
-..
 
 public class Lexer {
 	
@@ -16,7 +14,14 @@ public class Lexer {
 		stringTable = new  ..
 		state = 0;
 		stringTable.put("if", new Token("IF"));   // inserimento delle parole chiavi nella stringTable per evitare di scrivere un diagramma di transizione per ciascuna di esse (le parole chiavi verranno "catturate" dal diagramma di transizione e gestite e di conseguenza). IF poteva anche essere associato ad una costante numerica
-        ..
+        stringTable.put(3,new Token("id","azzzzzz"))
+
+	/* <id,2> -->  2 --> UE
+		int --> val
+		string,int
+	*/
+
+
 
 	}
 	
@@ -26,7 +31,7 @@ public class Lexer {
 	    
 	} 
 	
-	public Token nextToken()throws Exception{
+	public Token nextToken() throws Exception{
 		
 		//Ad ogni chiamata del lexer (nextToken())
 		//si resettano tutte le variabili utilizzate
