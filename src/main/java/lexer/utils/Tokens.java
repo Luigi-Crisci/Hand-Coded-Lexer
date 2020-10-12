@@ -10,7 +10,14 @@ public enum Tokens {
     THEN,
     ELSE,
     WHILE,
-    FOR
+    FOR,
+    //Separators
+    L_PAR,
+    R_PAR,
+    L_CURLY,
+    R_CURLY,
+    COLON,
+    S_COLON
 }
 
 

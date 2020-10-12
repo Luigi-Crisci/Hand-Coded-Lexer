@@ -5,12 +5,11 @@ import lexer.utils.*;
 
 import java.nio.ByteBuffer;
 
-public class IntLexemeAnalyzer extends AbstractLexemeAnalyzer {
+public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
 
     private String tokenName;
 
-
-    public IntLexemeAnalyzer() {
+    public NumberLexemeAnalyzer() {
         super();
         tokenName = Tokens.INT.toString();
     }
@@ -18,9 +17,9 @@ public class IntLexemeAnalyzer extends AbstractLexemeAnalyzer {
     @Override
     public RecognizedToken check(ByteBuffer buffer) {
 
-        while(true) {
+        while (true) {
             switch (state) {
-                case 0: { //Initial state
+                case 0: { // Initial state
                     nextChar(buffer);
                     if (LexerUtils.isDigit(readChar)) {
                         if (readChar.equals("0"))
@@ -32,9 +31,9 @@ public class IntLexemeAnalyzer extends AbstractLexemeAnalyzer {
                     return ERROR_TOKEN;
                 }
 
-                case 1: { //Read "0"
+                case 1: { // Read "0"
                     nextChar(buffer);
-                    if (readChar.equals(".")){
+                    if (readChar.equals(".")) {
                         state = 3;
                         tokenName = Tokens.FLOAT.toString();
                         break;
@@ -45,14 +44,14 @@ public class IntLexemeAnalyzer extends AbstractLexemeAnalyzer {
                     return constructToken();
                 }
 
-                case 2: { //Read "1-9" as first char
+                case 2: { // Read "1-9" as first char
                     nextChar(buffer);
-                    if (!LexerUtils.isDigit(readChar)){
-                        if(LexerUtils.isBlank(readChar)){
+                    if (!LexerUtils.isDigit(readChar)) {
+                        if (LexerUtils.isBlank(readChar)) {
                             retract();
                             return constructToken();
                         }
-                        if (readChar.equals(".")){
+                        if (readChar.equals(".")) {
                             state = 3;
                             tokenName = Tokens.FLOAT.toString();
                             break;
@@ -62,11 +61,11 @@ public class IntLexemeAnalyzer extends AbstractLexemeAnalyzer {
                     break;
                 }
 
-                case 3: { //Read a . or a 0, expecting at least a non-zero digit
+                case 3: { // Read a . or a 0, expecting at least a non-zero digit
                     nextChar(buffer);
-                    if(readChar.equals("0"))
+                    if (readChar.equals("0"))
                         continue;
-                    if(LexerUtils.isNonzeroDigit(readChar)){
+                    if (LexerUtils.isNonzeroDigit(readChar)) {
                         state = 4;
                         continue;
                     }
@@ -77,7 +76,7 @@ public class IntLexemeAnalyzer extends AbstractLexemeAnalyzer {
                     nextChar(buffer);
                     if (LexerUtils.isNonzeroDigit(readChar))
                         continue;
-                    if (readChar.equals("0")){
+                    if (readChar.equals("0")) {
                         state = 3;
                         continue;
                     }
@@ -91,9 +90,8 @@ public class IntLexemeAnalyzer extends AbstractLexemeAnalyzer {
 
     @Override
     protected RecognizedToken constructToken() {
-        Token t = new Token(tokenName,stringBuffer.toString());
-        return new RecognizedToken(t,numCharRead);
+        Token t = new Token(tokenName, stringBuffer.toString());
+        return new RecognizedToken(t, numCharRead);
     }
-
 
 }
