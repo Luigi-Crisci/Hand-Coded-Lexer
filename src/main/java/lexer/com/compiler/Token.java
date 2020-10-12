@@ -1,4 +1,4 @@
-package com.compiler;
+package lexer.com.compiler;
 
 public class Token {
 

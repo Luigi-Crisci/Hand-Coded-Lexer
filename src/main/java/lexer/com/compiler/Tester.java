@@ -1,7 +1,12 @@
-package com.compiler;
+package lexer.com.compiler;
 
 public class Tester {
 
+	public static void main(String[] args) {
+		System.out.println("AAAAAA");
+	}
+
+	/**
 	public static void main(String[] args) {
 
 		LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer();
@@ -22,5 +27,5 @@ public class Tester {
 		} else
 			System.out.println("File not found!!");
 	}
-
+ */
 }

@@ -1,9 +1,7 @@
-package lexeme;
+package lexer.lexeme;
 
-import com.compiler.Token;
-import utils.LexerUtils;
-import utils.RecognizedToken;
-import utils.Tokens;
+import lexer.com.compiler.*;
+import lexer.utils.*;
 
 import java.nio.ByteBuffer;
 

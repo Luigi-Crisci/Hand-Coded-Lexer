@@ -1,13 +1,15 @@
-package com.compiler;
+package lexer.com.compiler;
 
+import java.io.File;
 import java.util.HashMap;
+
 
 public class Lexer {
 	
+	/**
 	private File input;
 	private static HashMap<Integer,String> stringTable;  // la struttura dati potrebbe essere una hash map
 	private int state;
-	private int 3x;
     ..
 
 	public Lexer(){
@@ -20,7 +22,7 @@ public class Lexer {
 	/* <id,2> -->  2 --> UE
 		int --> val
 		string,int
-	*/
+	
 
 
 
@@ -118,5 +120,6 @@ private Token installID(String lessema){
 private void retrack(){
 	// fa il retract nel file di un carattere
 }
-		
+
+*/
 }

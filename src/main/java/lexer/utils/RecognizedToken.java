@@ -1,6 +1,6 @@
-package utils;
+package lexer.utils;
 
-import com.compiler.Token;
+import lexer.com.compiler.Token;
 
 public class RecognizedToken {
 

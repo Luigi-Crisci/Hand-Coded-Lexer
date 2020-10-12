@@ -1,10 +1,8 @@
-package lexeme;
-
-import com.compiler.Token;
-import utils.LexerUtils;
-import utils.RecognizedToken;
+package lexer.lexeme;
 
 import java.nio.ByteBuffer;
+import lexer.utils.LexerUtils;
+import lexer.utils.RecognizedToken;
 
 public abstract class AbstractLexemeAnalyzer {
 
@@ -32,6 +30,7 @@ public abstract class AbstractLexemeAnalyzer {
         stringBuffer.append(c);
         numCharRead++;
         readChar = LexerUtils.charToCharSequence(c);
+        
     }
 
 }

@@ -1,9 +1,7 @@
-package lexeme;
+package lexer.lexeme;
 
-import com.compiler.Token;
-import utils.LexerUtils;
-import utils.RecognizedToken;
-import utils.Tokens;
+import lexer.com.compiler.Token;
+import lexer.utils.*;
 
 import java.nio.ByteBuffer;
 
@@ -19,7 +17,7 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
     public RecognizedToken check(ByteBuffer buffer) {
         while (true){
             switch (state){
-                case 0:{
+                case 0:{ //Read a letter
                     nextChar(buffer);
                     if (LexerUtils.isLetter(readChar)){
                         state = 1;
@@ -27,7 +25,7 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
                     }
                     return ERROR_TOKEN;
                 }
-                case 1: {
+                case 1: { //Read a word (See LexemePatterns class for more info)
                     nextChar(buffer);
                     if (LexerUtils.isWord(readChar))
                         continue;
