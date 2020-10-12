@@ -2,7 +2,6 @@ package lexer.lexeme;
 
 import lexer.com.compiler.Token;
 import lexer.utils.*;
-
 import java.nio.ByteBuffer;
 
 public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
