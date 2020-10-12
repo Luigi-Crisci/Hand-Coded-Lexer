@@ -21,7 +21,7 @@ For some of this, we have defined some simple regex:
 - Operators: 
     - *AS*: *<--*
     - *EQ*: *=*
-    - *GT*: *>*
+    - *GT*: *>* 
     - *GEQ*: *>=*
     - *LT*: *<*
     - *LEQ*: *<=*
@@ -31,7 +31,7 @@ For some of this, we have defined some simple regex:
     - *MUL*: *
     - *DIV*: *\/*
     - *MOD*: *%*
-    - *POW*: *^* (optional) 
+    - *POW*: *^*
     - *AND*: *&&*
     - *OR*: *||*
     - *NOT*: *!*

@@ -46,6 +46,7 @@ public class OperatorLexemeAnalyzer extends AbstractLexemeAnalyzer{
                         case '-':
                         case '/':
                         case '*':
+                        case '=':
                         case '%': {
                             return constructToken();
                         }
