@@ -4,17 +4,8 @@ import java.nio.ByteBuffer;
 
 import lexer.utils.RecognizedToken;
 import lexer.utils.Tokens;
-import lexer.com.compiler.*;
 
 public class SeparatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
-
-	private String tokenName;
-
-
-	public SeparatorLexemeAnalyzer(){
-		super();
-		tokenName = "";
-	}
 
 	@Override
 	public RecognizedToken check(ByteBuffer buffer) {
@@ -23,27 +14,20 @@ public class SeparatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
 				case 0:{
 					nextChar(buffer);
 					if(readChar.equals("("))
-						tokenName = Tokens.L_PAR.toString();
+						return constructToken(Tokens.L_PAR);
 					if(readChar.equals(")"))
-						tokenName = Tokens.R_PAR.toString();
+						return constructToken(Tokens.R_PAR);
 					if(readChar.equals("{"))
-						tokenName = Tokens.L_CURLY.toString();
+						return constructToken(Tokens.L_CURLY);
 					if(readChar.equals("}"))
-						tokenName = Tokens.R_CURLY.toString();
+						return constructToken(Tokens.R_CURLY);
 					if(readChar.equals(","))
-						tokenName = Tokens.COLON.toString();
+						return constructToken(Tokens.COLON);
 					if(readChar.equals(";"))
-						tokenName = Tokens.S_COLON.toString();
-					return constructToken();
+						return constructToken(Tokens.S_COLON);
 				}
 			}
 		}
-	}
-
-	@Override
-	protected RecognizedToken constructToken() {
-		Token t = new Token(tokenName,stringBuffer.toString());
-        return new RecognizedToken(t,numCharRead);
 	}
 
 	

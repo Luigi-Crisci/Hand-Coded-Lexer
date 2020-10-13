@@ -17,7 +17,8 @@ public enum Tokens {
     L_CURLY,
     R_CURLY,
     COLON,
-    S_COLON;
+    S_COLON,
+    ERROR;
 
     public static int compareTo(Tokens x,Tokens y) {
         for(Tokens currentTokens: values()){

@@ -1,18 +1,10 @@
 package lexer.lexeme;
 
-import lexer.com.compiler.*;
 import lexer.utils.*;
 
 import java.nio.ByteBuffer;
 
 public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
-
-    private String tokenName;
-
-    public NumberLexemeAnalyzer() {
-        super();
-        tokenName = Tokens.INT.toString();
-    }
 
     @Override
     public RecognizedToken check(ByteBuffer buffer) {
@@ -21,6 +13,8 @@ public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
             switch (state) {
                 case 0: { // Initial state
                     nextChar(buffer);
+                    if (LexerUtils.isBlank(readChar))
+                        continue;
                     if (LexerUtils.isDigit(readChar)) {
                         if (readChar.equals("0"))
                             state = 1;
@@ -28,70 +22,51 @@ public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
                             state = 2;
                         break;
                     }
-                    return ERROR_TOKEN;
+                    return constructToken(Tokens.ERROR);
                 }
 
                 case 1: { // Read "0"
                     nextChar(buffer);
                     if (readChar.equals(".")) {
-                        state = 3;
-                        tokenName = Tokens.FLOAT.toString();
+                        state = 3; // It's float time
                         break;
                     }
-                    if (!LexerUtils.isBlank(readChar))
-                        return ERROR_TOKEN;
                     retract();
-                    return constructToken();
+                    return constructToken(Tokens.INT);
                 }
 
                 case 2: { // Read "1-9" as first char
                     nextChar(buffer);
                     if (!LexerUtils.isDigit(readChar)) {
-                        if (LexerUtils.isBlank(readChar)) {
-                            retract();
-                            return constructToken();
-                        }
                         if (readChar.equals(".")) {
-                            state = 3;
-                            tokenName = Tokens.FLOAT.toString();
+                            state = 3; // Float
                             break;
                         }
-                        return ERROR_TOKEN;
+                        retract();
+                        return constructToken(Tokens.INT);
                     }
-                    break;
+                    continue;
                 }
 
-                case 3: { // Read a . or a 0, expecting at least a non-zero digit
-                    nextChar(buffer);
-                    if (readChar.equals("0"))
-                        continue;
-                    if (LexerUtils.isNonzeroDigit(readChar)) {
+                case 3: { // Read a ., expecting at least a digit
+                    if (LexerUtils.isDigit(readChar)) {
                         state = 4;
                         continue;
                     }
-                    return ERROR_TOKEN;
+                    retract(2); // Delete . and current char
+                    return constructToken(Tokens.INT);
                 }
 
-                case 4: { // Check for float suffix - must not end with 0
+                case 4: { // Check for float suffix
                     nextChar(buffer);
-                    if (LexerUtils.isNonzeroDigit(readChar))
+                    if (LexerUtils.isDigit(readChar))
                         continue;
-                    if (readChar.equals("0")) {
-                        state = 3;
-                        continue;
-                    }
-
                     retract();
-                    return constructToken();
+                    return constructToken(Tokens.FLOAT);
                 }
             }
         }
     }
 
-    @Override
-    protected RecognizedToken constructToken() {
-        Token t = new Token(tokenName, stringBuffer.toString());
-        return new RecognizedToken(t, numCharRead);
-    }
 
 }

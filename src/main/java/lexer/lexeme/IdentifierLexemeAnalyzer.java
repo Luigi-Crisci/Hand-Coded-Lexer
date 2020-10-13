@@ -1,17 +1,9 @@
 package lexer.lexeme;
 
-import lexer.com.compiler.Token;
 import lexer.utils.*;
 import java.nio.ByteBuffer;
 
 public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
-
-    private String tokenName;
-
-    public IdentifierLexemeAnalyzer() {
-        super();
-        this.tokenName = Tokens.ID.toString();
-    }
 
     @Override
     public RecognizedToken check(ByteBuffer buffer) {
@@ -23,23 +15,18 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
                         state = 1;
                         continue;
                     }
-                    return ERROR_TOKEN;
+                    return constructToken(Tokens.ERROR);
                 }
+
                 case 1: { // Read a word (See LexemePatterns class for more info)
                     nextChar(buffer);
                     if (LexerUtils.isWord(readChar))
                         continue;
 
                     retract();
-                    return constructToken();
+                    return constructToken(Tokens.ID);
                 }
             }
         }
-    }
-
-    @Override
-    protected RecognizedToken constructToken() {
-        Token t = new Token(tokenName, stringBuffer.toString());
-        return new RecognizedToken(t, numCharRead);
     }
 }
