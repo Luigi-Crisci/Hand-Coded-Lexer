@@ -18,29 +18,32 @@ public abstract class AbstractLexemeAnalyzer {
     }
 
     public abstract RecognizedToken check(ByteBuffer buffer);
-    
+
     protected RecognizedToken constructToken(Tokens tokenName) {
         Token t = new Token(tokenName.toString(), stringBuffer.toString());
         return new RecognizedToken(t, numCharRead);
     }
 
-    protected void retract(){
+    protected void retract() {
         retract(1);
     }
 
-    protected void retract(int n){
-        if ( n <= 0)
+    protected void retract(int n) {
+        if (n <= 0)
             return;
         numCharRead -= n;
-        stringBuffer.delete(stringBuffer.length() - n, stringBuffer.length() - 1);
+        if (n == 1)
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+        else
+            stringBuffer.delete(stringBuffer.length() - n, stringBuffer.length() - 1);
     }
-    
+
     protected void nextChar(ByteBuffer buffer) {
         char c = buffer.getChar();
         stringBuffer.append(c);
         numCharRead++;
         readChar = LexerUtils.charToCharSequence(c);
-        
+
     }
 
 }
