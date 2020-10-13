@@ -6,26 +6,11 @@ import java.util.HashMap;
 
 public class Lexer {
 	
-	/**
 	private File input;
-	private static HashMap<Integer,String> stringTable;  // la struttura dati potrebbe essere una hash map
-	private int state;
-    ..
+	private static StringTable stringTable;  // la struttura dati potrebbe essere una hash map
 
 	public Lexer(){
-		// la symbol table in questo caso la chiamiamo stringTable
-		stringTable = new  ..
-		state = 0;
-		stringTable.put("if", new Token("IF"));   // inserimento delle parole chiavi nella stringTable per evitare di scrivere un diagramma di transizione per ciascuna di esse (le parole chiavi verranno "catturate" dal diagramma di transizione e gestite e di conseguenza). IF poteva anche essere associato ad una costante numerica
-        stringTable.put(3,new Token("id","azzzzzz"))
-
-	/* <id,2> -->  2 --> UE
-		int --> val
-		string,int
-	
-
-
-
+		stringTable = new  StringTable();
 	}
 	
 	public Boolean initialize(String filePath){
@@ -121,5 +106,5 @@ private void retrack(){
 	// fa il retract nel file di un carattere
 }
 
-*/
+
 }

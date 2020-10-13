@@ -29,4 +29,13 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
             }
         }
     }
+
+    @Override
+    protected RecognizedToken constructToken(Tokens tokenName) {
+        if(LexerUtils.isKeyword(stringBuffer.toString()))
+            return super.constructToken(Tokens.valueOf(stringBuffer.toString()));
+        else
+            return super.constructToken(Tokens.ID);
+    }
+
 }
