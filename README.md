@@ -2,7 +2,11 @@
 
 This is a simple java implementation of a Lexer.
 
-## Structure  
+## Structure
+
+In this section we'll describe what symbols our lexer can recognize and the class structure we have chosen.
+
+### Lexemes
 
 For our lexer we have considered the following tokens:  
 - *Delimiters*
@@ -35,7 +39,18 @@ For some of this, we have defined some simple regex:
     - *AND*: *&&*
     - *OR*: *||*
     - *NOT*: *!*
-    
+- Separators:
+  - *L_PAR*: *(*
+  - *R_PAR*: *)*
+  - *L_CUR*: *{*
+  - *R_CUR*: *}*
+  - *COM*: *,*
+  - *S_COM*: *;*
+  
+### Class Structure
+
+In accord with a classic Lexer structure, we've defined a '''Lexer''' 
+
 ## Authors
 - *Luigi Crisci*
 - *Alessio Cuccurullo*
