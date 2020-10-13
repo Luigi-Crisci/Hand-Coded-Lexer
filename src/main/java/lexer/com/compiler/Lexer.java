@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Lexer {
 	
 	private File input;
-	private static StringTable stringTable;  // la struttura dati potrebbe essere una hash map
+	private static StringTable stringTable;  // la struttura dati potrebbe essere una hash mapgit 
 
 	public Lexer(){
 		stringTable = new  StringTable();
