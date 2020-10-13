@@ -21,12 +21,6 @@ public class OperatorLexemeAnalyzerTest {
      */
 
     private final String ERROR_ON_TOKEN_ATTRIBUTE = "No match on token attribute";
-    private final String ERROR_ON_TOKEN_NAME = "Token is wrong";
-
-    @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
-    }
 
     @Test
     public void OperatorLexemeAnalyzerTest_GEQ() {
@@ -34,10 +28,22 @@ public class OperatorLexemeAnalyzerTest {
         buffer.asCharBuffer().put(">=aaa");
         buffer.rewind();
 
-        OperatorLexemeAnalyzer a = new OperatorLexemeAnalyzer();
-        RecognizedToken t = a.check(buffer.asReadOnlyBuffer());
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, t.token.getAttribute().equals(">="));
-        assertTrue(ERROR_ON_TOKEN_NAME, t.token.getName().equals(Tokens.OP.toString()));
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), ">=");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_GEQ_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put(">>= qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), ">=");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -48,7 +54,7 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        Token expectedToken = new Token(Tokens.OP.toString(), ">"); 
+        Token expectedToken = new Token(Tokens.OP.toString(), ">");
         assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
@@ -60,7 +66,7 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        Token expectedToken = new Token(Tokens.OP.toString(), ">"); 
+        Token expectedToken = new Token(Tokens.OP.toString(), ">");
         assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
@@ -72,8 +78,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("<"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "<");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_LT_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("<-- qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "<");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -84,8 +102,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("<="));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "<=");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_LEQ_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("< = qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "<=");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -96,8 +126,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("="));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "=");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_EQ_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("-= qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "=");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -108,8 +150,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("<--"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "<--");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_AS_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("< - - qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "<--");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -120,10 +174,21 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("!="));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "!=");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
+    @Test
+    public void OperatorLexemeAnalyzerTest_DIF_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("! = qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "!=");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
 
     @Test
     public void OperatorLexemeAnalyzerTest_PLUS() {
@@ -133,8 +198,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("+"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "+");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_PLUS_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("-+ qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "+");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -145,8 +222,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("-"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "-");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_SUB_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("!- qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "-");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -157,8 +246,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("*"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "*");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_MUL_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("/*");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "*");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -169,8 +270,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("/"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "/");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_DIV_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("&&/ sd");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "/");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -181,8 +294,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("%"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "%");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_MOD_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("&&%");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "%");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -193,8 +318,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("^"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "^");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_POW_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("%^^");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "^");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -205,8 +342,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("&&"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "&&");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test //TODO: fix
+    public void OperatorLexemeAnalyzerTest_AND_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("& & qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "&&");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -217,8 +366,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("||"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "||");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test //TODO: fix
+    public void OperatorLexemeAnalyzerTest_OR_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("| | s");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "||");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
@@ -229,7 +390,20 @@ public class OperatorLexemeAnalyzerTest {
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
         RecognizedToken rt = ola.check(buffer);
-        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.getAttribute().equals("!"));
-        assertTrue(ERROR_ON_TOKEN_NAME, rt.token.getName().equals(Tokens.OP.toString()));
+        Token expectedToken = new Token(Tokens.OP.toString(), "!");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_NOT_ERROR() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("-!fqw");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "!");
+        assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
 }

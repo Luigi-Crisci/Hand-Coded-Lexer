@@ -49,10 +49,10 @@ For some of this, we have defined some simple regex:
   
 ### Class Structure
 
-In accord with a classic Lexer structure, we've defined a `Lexer` class, which wrap a `ByteBuffer` object referring to the source code target file.  
-The only method exposed is `getToken()`, which read enough character from the buffer to recognize a `Token` object and return it to the caller.  
+In accord with a classic Lexer structure, we have defined a `Lexer` class, which wraps a `ByteBuffer` object referring to the source code target file.  
+The only method exposed is `getToken()`, which reads just enough characters from the buffer in order to recognize a `Token` object and return it to the caller.  
 
-Every *lexeme* in our language are identified by a `LexemeAnalyzer`, specialized foreach lexeme. Every analyzer expose a method `check(ByteBuffer)` to check if the next characters found in the buffer correspond to the lexeme that it represents: on success, it returns a `RecognizedToken` object, which is a *data structure* composed of a `Token` and an `int numCharRead` representing the characters read by the analyzer to find the lexeme, or an `ERROR TOKEN` object, a static `RecognizedToken` object used to warn about an error.
+Every *lexeme* in our language is identified by a `LexemeAnalyzer`, specialized foreach lexeme. Every analyzer exposes a method `check(ByteBuffer)` which checks whether the next characters read in the buffer correspond to the lexeme that it represents: on success, it returns a `RecognizedToken` object, which is a *data structure* composed of a `Token` and an `int numCharRead` representing the characters read by the analyzer to find the lexeme, or an `ERROR TOKEN` object, a static `RecognizedToken` object that is used to deal with any error occurred in such method call.
 
 ## Authors
 - *Luigi Crisci*
