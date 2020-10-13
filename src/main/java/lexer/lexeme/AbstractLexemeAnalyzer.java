@@ -32,10 +32,8 @@ public abstract class AbstractLexemeAnalyzer {
         if (n <= 0)
             return;
         numCharRead -= n;
-        if (n == 1)
-            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-        else
-            stringBuffer.delete(stringBuffer.length() - n, stringBuffer.length() - 1);
+
+        stringBuffer.delete(stringBuffer.length() - n, stringBuffer.length());
     }
 
     protected void nextChar(ByteBuffer buffer) {

@@ -2,7 +2,6 @@ package lexer;
 
 import static org.junit.Assert.assertTrue;
 
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 
 import org.junit.Test;
