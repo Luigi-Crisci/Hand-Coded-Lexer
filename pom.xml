@@ -52,6 +52,20 @@
           </executions>
         </plugin>
 
+        <plugin>
+          <groupId>de.jflex</groupId>
+          <artifactId>jflex-maven-plugin</artifactId>
+          <version>1.8.2</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
