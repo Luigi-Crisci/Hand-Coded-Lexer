@@ -155,7 +155,7 @@ public class OperatorLexemeAnalyzerTest {
     }
 
     @Test
-    public void OperatorLexemeAnalyzerTest_AS_ERROR() {
+    public void OperatorLexemeAnalyzerTest_AS_ERROR_RET1() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
         buffer.asCharBuffer().put("< - - qs");
         buffer.rewind();
@@ -164,6 +164,18 @@ public class OperatorLexemeAnalyzerTest {
         RecognizedToken rt = ola.check(buffer);
         Token expectedToken = new Token(Tokens.OP.toString(), "<--");
         assertFalse(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void OperatorLexemeAnalyzerTest_AS_ERROR_RET2() {
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("<- - qs");
+        buffer.rewind();
+
+        OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
+        RecognizedToken rt = ola.check(buffer);
+        Token expectedToken = new Token(Tokens.OP.toString(), "<");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 
     @Test
