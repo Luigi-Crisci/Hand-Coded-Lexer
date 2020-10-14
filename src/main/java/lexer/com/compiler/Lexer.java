@@ -42,19 +42,20 @@ public class Lexer {
 	public Token nextToken() throws Exception {
 
 		//TODO:Gestire la dimensione del buffer qui, controllando se per metà è vuoto e se contine EOF
+		buffer.rewind();
 
 		RecognizedToken recognizedToken;
 		recognizedToken = analyzers.stream().map(e -> e.check(buffer.asReadOnlyBuffer())).min((token1,token2) -> {
-			int res = token1.compareTo(token2);
+			int res = token1.compareTo(token2); //First we compare token length
 			if( res == 0 )
-				res = token1.token.compareTo(token2.token);
+				res = token1.token.compareTo(token2.token); //If equals, the chose is based on token priority
 			return res;
 		}).get(); 
 
 		//Consume characters
 		buffer.position(recognizedToken.character_read);
 		buffer = buffer.compact();
-		buffer.position(0);
+		buffer.rewind();
 
 		installID(recognizedToken.token);
 

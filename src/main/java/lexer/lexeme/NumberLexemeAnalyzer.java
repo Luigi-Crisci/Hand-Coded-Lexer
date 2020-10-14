@@ -69,5 +69,4 @@ public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
         }
     }
 
-
 }

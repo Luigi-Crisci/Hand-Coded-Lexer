@@ -12,7 +12,7 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
                 case 0: { // Read a letter
                     nextChar(buffer);
                     if (LexerUtils.isBlank(readChar))
-                    continue;
+                        continue;
                     if (LexerUtils.isLetter(readChar)) {
                         state = 1;
                         continue;
@@ -24,7 +24,6 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
                     nextChar(buffer);
                     if (LexerUtils.isWord(readChar))
                         continue;
-
                     retract();
                     return constructToken(Tokens.ID);
                 }
@@ -34,7 +33,7 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
 
     @Override
     protected RecognizedToken constructToken(Tokens tokenName) {
-        if(LexerUtils.isKeyword(stringBuffer.toString()))
+        if (LexerUtils.isKeyword(stringBuffer.toString()))
             return super.constructToken(Tokens.valueOf(stringBuffer.toString()));
         else
             return super.constructToken(Tokens.ID);
