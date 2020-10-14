@@ -1,110 +1,85 @@
 package lexer.com.compiler;
 
 import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 
+import lexer.lexeme.AbstractLexemeAnalyzer;
+import lexer.utils.LexemeAnalyzerLoader;
+import lexer.utils.LexerUtils;
+import lexer.utils.RecognizedToken;
+import lexer.utils.Tokens;
 
 public class Lexer {
-	
-	private File input;
-	private static StringTable stringTable;  // la struttura dati potrebbe essere una hash mapgit 
 
-	public Lexer(){
-		stringTable = new  StringTable();
+	private final int BUFFER_DIMENSION = 3000000;
+
+	private FileChannel inputFileChannel;
+	private ByteBuffer buffer;
+	private static StringTable stringTable;
+	public Set<AbstractLexemeAnalyzer> analyzers;
+
+	public Lexer() {
+		stringTable = new StringTable();// Get all analyzer classes from package
+		buffer = ByteBuffer.allocate(BUFFER_DIMENSION);
+		allocateAnalyzers();
 	}
-	
-	public Boolean initialize(String filePath){
-	
-	   // prepara file input per lettura e controlla errori
-	    
-	} 
-	
-	public Token nextToken() throws Exception{
-		
-		//Ad ogni chiamata del lexer (nextToken())
-		//si resettano tutte le variabili utilizzate
-		state = 0;
-		String lessema = ""; //� il lessema riconosciuto
-        char c;
-        ..
-		
-		while(true){
 
-			 // legge un carattere da input e lancia eccezione quando incontra EOF per restituire null
-			 //  per indicare che non ci sono pi� token
-			
-            c = ..
-            ..
-			
-			
-			//id
-			switch(state){
-				case 9:
-					if(Character.isLetter(c)){
-						state = 10;
-						lessema += c;
-						// Nel caso in cui il file � terminato ma ho letto qualcosa di valido
-						// devo lanciare il token (altrimenti perderei l'ultimo token, troncato per l'EOF) 
-						if( // controlla se � finito il file){
-							return installID(lessema);
-						}
-						break;
-					}
-					state = 12;
-					break;
-					
-				case 10:
-					if(Character.isLetterOrDigit(c)){
-						lessemq += c;
-						if(// controlla se � finito il file)
-							return installID(lessema);
-						break;
-					}else{
-						state = 11;
-						retrack();
-						return installID(lessema);
-					}
-				default: break;
-			}//end switch
-			
-			//unsigned numbers
-			switch(state){
-				case 12:
-					if(Character.isDigit(c)){
-						state = 13;
-						lessema += c;
-						if(// controlla se � finito il file){
-							return new Token("NUMBER", lessema);
-						}
-						break;
-					}
-					state = 22;
-					break;
-                           
-                case 13:
-				..
-           }
-		}//end while
-	}//end method
-		
-  
-private Token installID(String lessema){
-	Token token;
-	
-	//utilizzo come chiave della hashmap il lessema
-	if(stringTable.containsKey(lessema))
-		return symbolTable.get(lessema);
-	else{
-		token =  new Token("ID", lessema);
-		stringTable.put(lessema, token);
-		return token;
+	public Boolean initialize(String filePath) {
+		try {
+			inputFileChannel = FileChannel.open(Paths.get(filePath));
+			//Prima lettura
+			inputFileChannel.read(buffer);
+			return true;
+		} catch (IOException e) {
+			return false;
+		}
 	}
-}
-	
 
-private void retrack(){
-	// fa il retract nel file di un carattere
-}
+	public Token nextToken() throws Exception {
 
+		//TODO:Gestire la dimensione del buffer qui, controllando se per metà è vuoto e se contine EOF
 
+		RecognizedToken recognizedToken;
+		recognizedToken = analyzers.stream().map(e -> e.check(buffer.asReadOnlyBuffer())).min((token1,token2) -> {
+			int res = token1.compareTo(token2);
+			if( res == 0 )
+				res = token1.token.compareTo(token2.token);
+			return res;
+		}).get(); 
+
+		//Consume characters
+		buffer.position(recognizedToken.character_read);
+		buffer = buffer.compact();
+		buffer.position(0);
+
+		installID(recognizedToken.token);
+
+		return recognizedToken.token;
+	}
+
+	private void installID(Token token) {
+		if(Tokens.valueOf(token.getName()).equals(Tokens.ID)){
+			stringTable.put(stringTable.size(), token.getAttribute());
+			token.setAttribute("" + (stringTable.size() - 1));
+		}
+	}
+
+	private void allocateAnalyzers() {
+		analyzers = new HashSet<>();
+		LexemeAnalyzerLoader.loadLexemeAnalyzerClasses().forEach(e -> {
+			try {
+				analyzers.add(e.getConstructor().newInstance()); //Declare an object foreach class
+			} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e1 ) {
+				e1.printStackTrace();
+			}
+		});
+	}
 }

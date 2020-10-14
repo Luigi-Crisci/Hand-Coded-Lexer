@@ -1,5 +1,7 @@
 package lexer.com.compiler;
 
+import lexer.utils.Tokens;
+
 public class Token {
 
     private String name;
@@ -56,6 +58,11 @@ public class Token {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+
+
+	public int compareTo(Token token1){
+		return Tokens.compareTo(Tokens.valueOf(name), Tokens.valueOf(token1.name));
 	}
 
 	

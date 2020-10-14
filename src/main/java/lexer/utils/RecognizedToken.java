@@ -16,4 +16,12 @@ public class RecognizedToken {
         this.character_read = character_read;
         this.token = t;
     }
+
+    public int compareTo(RecognizedToken token1){
+        if(character_read > token1.character_read)
+            return 1;
+        if(character_read < token1.character_read)
+            return -1;
+        return 0;
+    }
 }
