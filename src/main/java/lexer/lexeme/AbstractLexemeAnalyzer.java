@@ -20,7 +20,7 @@ public abstract class AbstractLexemeAnalyzer {
     public abstract RecognizedToken check(ByteBuffer buffer);
 
     protected RecognizedToken constructToken(Tokens tokenName) {
-        Token t = new Token(tokenName.toString(), stringBuffer.toString());
+        Token t = new Token(tokenName.toString(), stringBuffer.toString().trim());
         return new RecognizedToken(t, numCharRead);
     }
 
