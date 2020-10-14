@@ -37,7 +37,7 @@ public abstract class AbstractLexemeAnalyzer {
     }
 
     protected void nextChar(ByteBuffer buffer) {
-        char c = buffer.getChar();
+        char c = (char) buffer.get();
         stringBuffer.append(c);
         numCharRead++;
         readChar = LexerUtils.charToCharSequence(c);

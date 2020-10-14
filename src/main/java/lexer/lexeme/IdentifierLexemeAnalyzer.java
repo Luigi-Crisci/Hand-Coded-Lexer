@@ -22,7 +22,6 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
                     nextChar(buffer);
                     if (LexerUtils.isWord(readChar))
                         continue;
-
                     retract();
                     return constructToken(Tokens.ID);
                 }

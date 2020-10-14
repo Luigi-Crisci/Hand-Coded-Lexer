@@ -25,6 +25,7 @@ public class SeparatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
 						return constructToken(Tokens.COLON);
 					if(readChar.equals(";"))
 						return constructToken(Tokens.S_COLON);
+					return constructToken(Tokens.ERROR);
 				}
 			}
 		}
