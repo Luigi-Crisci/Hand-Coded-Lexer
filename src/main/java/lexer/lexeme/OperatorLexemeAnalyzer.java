@@ -13,7 +13,7 @@ public class OperatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
                 case 0: {
                     nextChar(buffer);
                     if (LexerUtils.isBlank(readChar))
-                    continue;
+                        continue;
                     switch (readChar.charAt(0)) {
                         case '>': {
                             state = 1;

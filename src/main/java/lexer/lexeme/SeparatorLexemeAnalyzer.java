@@ -12,21 +12,21 @@ public class SeparatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
 	public RecognizedToken check(ByteBuffer buffer) {
 		while (true) {
 			switch (state) {
-				case 0:{
+				case 0: {
 					nextChar(buffer);
 					if (LexerUtils.isBlank(readChar))
-					continue;
-					if(readChar.equals("("))
+						continue;
+					if (readChar.equals("("))
 						return constructToken(Tokens.L_PAR);
-					if(readChar.equals(")"))
+					if (readChar.equals(")"))
 						return constructToken(Tokens.R_PAR);
-					if(readChar.equals("{"))
+					if (readChar.equals("{"))
 						return constructToken(Tokens.L_CURLY);
-					if(readChar.equals("}"))
+					if (readChar.equals("}"))
 						return constructToken(Tokens.R_CURLY);
-					if(readChar.equals(","))
+					if (readChar.equals(","))
 						return constructToken(Tokens.COLON);
-					if(readChar.equals(";"))
+					if (readChar.equals(";"))
 						return constructToken(Tokens.S_COLON);
 					return constructToken(Tokens.ERROR);
 				}
@@ -34,5 +34,4 @@ public class SeparatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
 		}
 	}
 
-	
 }
