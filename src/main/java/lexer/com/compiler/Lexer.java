@@ -1,19 +1,15 @@
 package lexer.com.compiler;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Set;
 
 import lexer.lexeme.AbstractLexemeAnalyzer;
 import lexer.utils.LexemeAnalyzerLoader;
-import lexer.utils.LexerUtils;
 import lexer.utils.RecognizedToken;
 import lexer.utils.Tokens;
 

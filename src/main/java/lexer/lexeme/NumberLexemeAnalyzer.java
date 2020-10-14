@@ -49,6 +49,7 @@ public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
                 }
 
                 case 3: { // Read a ., expecting at least a digit
+                    nextChar(buffer);
                     if (LexerUtils.isDigit(readChar)) {
                         state = 4;
                         continue;

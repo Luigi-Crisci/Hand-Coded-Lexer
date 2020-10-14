@@ -28,11 +28,6 @@ public class SeparatorLexemeAnalyzerTest {
     }
 
     @Test
-    public void SeparatorLexemeAnalyzerTest_L_PAR_Error() {
-
-    }
-
-    @Test
     public void SeparatorLexemeAnalyzerTest_R_PAR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
         buffer.asCharBuffer().put(" );");
@@ -42,11 +37,6 @@ public class SeparatorLexemeAnalyzerTest {
         RecognizedToken rt = sla.check(buffer);
         Token expectedToken = new Token(Tokens.R_PAR.toString(), ")");
         assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
-    }
-
-    @Test
-    public void SeparatorLexemeAnalyzerTest_R_PAR_Error() {
-
     }
 
     @Test
@@ -62,11 +52,6 @@ public class SeparatorLexemeAnalyzerTest {
     }
 
     @Test
-    public void SeparatorLexemeAnalyzerTest_L_Curly_Error() {
-
-    }
-
-    @Test
     public void SeparatorLexemeAnalyzerTest_R_Curly() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
         buffer.asCharBuffer().put("} on");
@@ -76,11 +61,6 @@ public class SeparatorLexemeAnalyzerTest {
         RecognizedToken rt = sla.check(buffer);
         Token expectedToken = new Token(Tokens.R_CURLY.toString(), "}");
         assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
-    }
-
-    @Test
-    public void SeparatorLexemeAnalyzerTest_R_Curly_Error() {
-
     }
 
     @Test
@@ -96,11 +76,6 @@ public class SeparatorLexemeAnalyzerTest {
     }
 
     @Test
-    public void SeparatorLexemeAnalyzerTest_Colon_Error() {
-
-    }
-
-    @Test
     public void SeparatorLexemeAnalyzerTest_S_Colon() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
         buffer.asCharBuffer().put(";; asd;");
@@ -110,11 +85,6 @@ public class SeparatorLexemeAnalyzerTest {
         RecognizedToken rt = sla.check(buffer);
         Token expectedToken = new Token(Tokens.S_COLON.toString(), ";");
         assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
-    }
-
-    @Test
-    public void SeparatorLexemeAnalyzerTest_S_Colon_Error() {
-
     }
 
 }
