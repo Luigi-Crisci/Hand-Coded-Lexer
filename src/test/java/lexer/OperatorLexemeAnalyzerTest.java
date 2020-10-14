@@ -16,9 +16,6 @@ import lexer.utils.Tokens;
  * Unit test for simple App.
  */
 public class OperatorLexemeAnalyzerTest {
-    /**
-     * Rigorous Test :-)
-     */
 
     private final String ERROR_ON_TOKEN_ATTRIBUTE = "No match on token attribute";
 
@@ -37,7 +34,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_GEQ_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(">>= qs");
+        buffer.asCharBuffer().put(" >>= qs");
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -61,7 +58,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_GT_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(">= qs");
+        buffer.asCharBuffer().put(" >= qs");
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();

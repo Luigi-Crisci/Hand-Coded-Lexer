@@ -13,10 +13,10 @@ import lexer.utils.Tokens;
 
 public class IdentifierLexemeAnalyzerTest {
 
-    private final String ERROR_ON_TOKEN_ATTRIBUTE = "";
+    private final String ERROR_ON_TOKEN_ATTRIBUTE = "Errore nel riconoscimento del token";
 
     @Test
-    public void LexemeAnalyzerTest() {
+    public void LexemeAnalyzerTest_ComplexVar() {
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
         buffer.asCharBuffer().put("var_1av2c <-- 10");
@@ -25,6 +25,19 @@ public class IdentifierLexemeAnalyzerTest {
         IdentifierLexemeAnalyzer ila = new IdentifierLexemeAnalyzer();
         RecognizedToken rt = ila.check(buffer);
         Token expectedToken = new Token(Tokens.ID.toString(), "var_1av2c");
+        assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
+    }
+
+    @Test
+    public void LexemeAnalyzerTest_ComplexVar2() {
+
+        ByteBuffer buffer = ByteBuffer.allocate(4096);
+        buffer.asCharBuffer().put("va1_1_1r_1av2c <-- 10");
+        buffer.rewind();
+
+        IdentifierLexemeAnalyzer ila = new IdentifierLexemeAnalyzer();
+        RecognizedToken rt = ila.check(buffer);
+        Token expectedToken = new Token(Tokens.ID.toString(), "va1_1_1r_1av2c");
         assertTrue(ERROR_ON_TOKEN_ATTRIBUTE, rt.token.equals(expectedToken));
     }
 

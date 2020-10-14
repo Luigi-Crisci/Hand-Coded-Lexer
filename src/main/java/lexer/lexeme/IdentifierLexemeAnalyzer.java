@@ -11,6 +11,8 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
             switch (state) {
                 case 0: { // Read a letter
                     nextChar(buffer);
+                    if (LexerUtils.isBlank(readChar))
+                    continue;
                     if (LexerUtils.isLetter(readChar)) {
                         state = 1;
                         continue;
