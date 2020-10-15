@@ -50,7 +50,7 @@ This Lexer implementation recognizes the following Tokens:
 - Identifiers: *([a-zA-Z])+[a-zA-Z0-9]**
   <details>
   <summary>ID Finite State Machine</summary>
-  <img src="./img/ID_DFA.svg" width="50%" height="50%"/> </br>
+  <img src="./img/ID_DFA.svg" width="60%" height="60%"/> </br>
   </details>
   <br>
 - Literals:
@@ -58,7 +58,7 @@ This Lexer implementation recognizes the following Tokens:
     - *FLOAT:* INT(\.[0-9]+) 
   <details>
   <summary>LIT Finite State Machine</summary>
-  <img src="./img/NUM_DFA.svg" width="50%" height="50%"/> </br>
+  <img src="./img/NUM_DFA.svg" width="60%" height="60%"/> </br>
   </details>
   </br>
   
@@ -66,7 +66,7 @@ This Lexer implementation recognizes the following Tokens:
     - *STR:* *"[^"]"*
   <details>
   <summary>STR Finite State Machine</summary>
-  <img src="./img/STR_DFA.svg" width="50%" height="50%"/> </br>
+  <img src="./img/STR_DFA.svg" width="60%" height="60%"/> </br>
   </details>
   </br>
 - Operators:  
@@ -95,7 +95,7 @@ This Lexer implementation recognizes the following Tokens:
     - *NOT*: *!*
   <details>
   <summary>OP Finite State Machine</summary>
-  <img src="./img/OP_DFA.svg" width="50%" height="50%"/> </br>
+  <img src="./img/OP_DFA.svg" width="70%" height="70%"/> </br>
   </details>    
   </br>
 
@@ -110,7 +110,7 @@ This Lexer implementation recognizes the following Tokens:
 
   <details>
   <summary>SEP Finite State Machine</summary>
-  <img src="./img/SEP_DFA.svg" width="30%" height="30%"/> </br>
+  <img src="./img/SEP_DFA.svg" width="50%" height="50%"/> </br>
   </details>  
   </br>
 
