@@ -36,7 +36,7 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
         if (LexerUtils.isKeyword(stringBuffer.toString()))
             return super.constructToken(Tokens.valueOf(stringBuffer.toString()));
         else
-            return super.constructToken(Tokens.ID);
+            return super.constructToken(tokenName);
     }
 
 }
