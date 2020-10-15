@@ -7,6 +7,7 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import lexer.lexeme.AbstractLexemeAnalyzer;
 import lexer.utils.LexemeAnalyzerLoader;
@@ -33,7 +34,7 @@ public class Lexer {
 	public Boolean initialize(String filePath) {
 		try {
 			inputFileChannel = FileChannel.open(Paths.get(filePath));
-			//Prima lettura
+			// Prima lettura
 			inputFileChannel.read(buffer);
 			return true;
 		} catch (IOException e) {
@@ -43,23 +44,21 @@ public class Lexer {
 
 	public Token nextToken() throws Exception {
 
-		//TODO:Gestire la dimensione del buffer qui, controllando se per metà è vuoto e se contine EOF
+		// TODO:Gestire la dimensione del buffer qui, controllando se per metà è vuoto e
+		// se contine EOF
 		buffer.rewind();
-		if(isEmpty())
+		if (isEmpty())
 			return EMPTY_TOKEN;
-		
 
 		RecognizedToken recognizedToken;
-		recognizedToken = analyzers.stream()
-									.map(e -> e.check(buffer.asReadOnlyBuffer()))
-									.max((token1,token2) -> {
-											int res = token1.compareTo(token2); //First we compare token length
-											if( res == 0 )
-												res = token1.token.compareTo(token2.token); //If equals, the chose is based on token priority
-											return res;
-									}).get(); 
+		recognizedToken = analyzers.stream().map(e -> e.check(buffer.asReadOnlyBuffer())).max((token1, token2) -> {
+			int res = token1.compareTo(token2); // First we compare token length
+			if (res == 0)
+				res = token1.token.compareTo(token2.token); // If equals, the chose is based on token priority
+			return res;
+		}).get();
 
-		consumeCharacterReadFromBuffer(recognizedToken);							
+		consumeCharacterReadFromBuffer(recognizedToken);
 
 		installID(recognizedToken.token);
 
@@ -67,7 +66,7 @@ public class Lexer {
 	}
 
 	private void consumeCharacterReadFromBuffer(RecognizedToken recognizedToken) {
-		if(LexerUtils.isError(recognizedToken.token.getName()))
+		if (LexerUtils.isError(recognizedToken.token.getName()))
 			recognizedToken.character_read = 1;
 		buffer.position(recognizedToken.character_read);
 		buffer = buffer.compact();
@@ -75,9 +74,17 @@ public class Lexer {
 	}
 
 	private void installID(Token token) {
-		if(Tokens.valueOf(token.getName()).equals(Tokens.ID)){
-			stringTable.put(stringTable.size(), token.getAttribute());
-			token.setAttribute("" + (stringTable.size() - 1));
+		int key;
+		if (Tokens.valueOf(token.getName()).equals(Tokens.ID)) {
+			if (stringTable.containsValue(token.getAttribute())) {
+				key = stringTable.entrySet().parallelStream().filter(e -> e.getValue().equals(token.getAttribute()))
+						.findFirst().get().getKey();
+				token.setAttribute("" + key);
+			} else {
+				key = stringTable.size();
+				stringTable.putIfAbsent(stringTable.size(), token.getAttribute());
+				token.setAttribute("" + key);
+			}
 		}
 	}
 
@@ -85,18 +92,19 @@ public class Lexer {
 		analyzers = new HashSet<>();
 		LexemeAnalyzerLoader.loadLexemeAnalyzerClasses().forEach(e -> {
 			try {
-				analyzers.add(e.getConstructor().newInstance()); //Declare an object foreach class
-			} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e1 ) {
+				analyzers.add(e.getConstructor().newInstance()); // Declare an object foreach class
+			} catch (InstantiationException | IllegalAccessException | NoSuchMethodException
+					| InvocationTargetException e1) {
 				e1.printStackTrace();
 			}
 		});
 	}
 
-	private boolean isEmpty(){
-		return buffer.asReadOnlyBuffer().get() == (char)0;
+	private boolean isEmpty() {
+		return buffer.asReadOnlyBuffer().get() == (char) 0;
 	}
 
-	public StringTable getStringTable(){
+	public StringTable getStringTable() {
 		return stringTable;
 	}
 }

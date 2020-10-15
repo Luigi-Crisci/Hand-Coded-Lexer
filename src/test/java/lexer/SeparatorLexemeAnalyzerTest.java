@@ -3,6 +3,7 @@ package lexer;
 import static org.junit.Assert.assertTrue;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class SeparatorLexemeAnalyzerTest {
     @Test
     public void SeparatorLexemeAnalyzerTest_L_PAR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("(\"content\");");
+        buffer.put("(\"content\");".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         SeparatorLexemeAnalyzer sla = new SeparatorLexemeAnalyzer();
@@ -30,7 +31,7 @@ public class SeparatorLexemeAnalyzerTest {
     @Test
     public void SeparatorLexemeAnalyzerTest_R_PAR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(" );");
+        buffer.put(" );".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         SeparatorLexemeAnalyzer sla = new SeparatorLexemeAnalyzer();
@@ -42,7 +43,7 @@ public class SeparatorLexemeAnalyzerTest {
     @Test
     public void SeparatorLexemeAnalyzerTest_L_Curly() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("{ public;");
+        buffer.put("{ public;".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         SeparatorLexemeAnalyzer sla = new SeparatorLexemeAnalyzer();
@@ -54,7 +55,7 @@ public class SeparatorLexemeAnalyzerTest {
     @Test
     public void SeparatorLexemeAnalyzerTest_R_Curly() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("} on");
+        buffer.put("} on".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         SeparatorLexemeAnalyzer sla = new SeparatorLexemeAnalyzer();
@@ -66,7 +67,7 @@ public class SeparatorLexemeAnalyzerTest {
     @Test
     public void SeparatorLexemeAnalyzerTest_Colon() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(",var2;");
+        buffer.put(",var2;".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         SeparatorLexemeAnalyzer sla = new SeparatorLexemeAnalyzer();
@@ -78,7 +79,7 @@ public class SeparatorLexemeAnalyzerTest {
     @Test
     public void SeparatorLexemeAnalyzerTest_S_Colon() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(";; asd;");
+        buffer.put(";; asd;".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         SeparatorLexemeAnalyzer sla = new SeparatorLexemeAnalyzer();

@@ -7,7 +7,6 @@ import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 import org.junit.After;
 import org.junit.Before;
@@ -23,7 +22,7 @@ public class LexerTest {
     public void initialize() {
         try {
             file = Files.createFile(file);
-            Files.write(file,"if (i = 0)".getBytes());
+            Files.write(file,"if (i = 0)\n\ni = 0".getBytes());
         } catch (IOException e) {  
             e.printStackTrace();
         }
@@ -66,7 +65,6 @@ public class LexerTest {
     public void Tester() {
         String[] s = {"aaaaa","testfile"};
         Tester.main( s);
-
     }
 
     @After

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class NumberLexemeAnalyzerTest {
     public void NumberLexemeAnalyzerTest_INT(){
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("         2002");
+        buffer.put("         2002".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
         
         NumberLexemeAnalyzer nla = new NumberLexemeAnalyzer();
@@ -33,7 +34,7 @@ public class NumberLexemeAnalyzerTest {
     public void NumberLexemeAnalyzerTest_ERROR_ON_ZERO(){
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("01997");
+        buffer.put("01997".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
         
         NumberLexemeAnalyzer nla = new NumberLexemeAnalyzer();
@@ -46,7 +47,7 @@ public class NumberLexemeAnalyzerTest {
     public void NumberLexemeAnalyzerTest_INT_ERROR(){
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("         2002.0");
+        buffer.put("         2002.0".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
         
         NumberLexemeAnalyzer nla = new NumberLexemeAnalyzer();
@@ -59,7 +60,7 @@ public class NumberLexemeAnalyzerTest {
     public void NumberLexemeAnalyzerTest_FLOAT(){
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("3.14;");
+        buffer.put("3.14;".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
         
         NumberLexemeAnalyzer nla = new NumberLexemeAnalyzer();
@@ -72,7 +73,7 @@ public class NumberLexemeAnalyzerTest {
     public void NumberLexemeAnalyzerTest_DOUBLE_DOT(){
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("3..14;");
+        buffer.put("3..14;".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
         
         NumberLexemeAnalyzer nla = new NumberLexemeAnalyzer();

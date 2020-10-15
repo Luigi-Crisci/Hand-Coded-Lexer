@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_GEQ() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(">=aaa");
+        buffer.put(">=aaa".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -34,7 +35,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_GEQ_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(" >>= qs");
+        buffer.put(" >>= qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -46,7 +47,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_GT() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("> qs");
+        buffer.put("> qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -58,7 +59,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_GT_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put(" >= qs");
+        buffer.put(" >= qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -70,7 +71,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_LT() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("<qwf");
+        buffer.put("<qwf".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -82,7 +83,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_LT_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("<-- qs");
+        buffer.put("<-- qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -94,7 +95,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_LEQ() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("<=;f");
+        buffer.put("<=;f".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -106,7 +107,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_LEQ_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("< = qs");
+        buffer.put("< = qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -118,7 +119,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_EQ() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("=;=f");
+        buffer.put("=;=f".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -130,7 +131,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_EQ_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("-= qs");
+        buffer.put("-= qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -142,7 +143,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_AS() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("<--WSW");
+        buffer.put("<--WSW".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -154,7 +155,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_AS_ERROR_RET1() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("< - - qs");
+        buffer.put("< - - qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -166,7 +167,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_AS_ERROR_RET2() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("<- - qs");
+        buffer.put("<- - qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -178,7 +179,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_DIF() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("!=@SW");
+        buffer.put("!=@SW".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -190,7 +191,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_DIF_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("! = qs");
+        buffer.put("! = qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -202,7 +203,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_PLUS() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("+12W");
+        buffer.put("+12W".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -214,7 +215,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_PLUS_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("-+ qs");
+        buffer.put("-+ qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -226,7 +227,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_SUB() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("- #12");
+        buffer.put("- #12".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -238,7 +239,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_SUB_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("!- qs");
+        buffer.put("!- qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -250,7 +251,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_MUL() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("*AS4");
+        buffer.put("*AS4".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -262,7 +263,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_MUL_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("/*");
+        buffer.put("/*".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -274,7 +275,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_DIV() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("/#12");
+        buffer.put("/#12".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -286,7 +287,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_DIV_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("&&/ sd");
+        buffer.put("&&/ sd".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -298,7 +299,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_MOD() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("%_13");
+        buffer.put("%_13".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -310,7 +311,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_MOD_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("&&%");
+        buffer.put("&&%".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -322,7 +323,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_POW() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("^=");
+        buffer.put("^=".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -334,7 +335,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_POW_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("%^^");
+        buffer.put("%^^".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -346,7 +347,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_AND() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("&&/");
+        buffer.put("&&/".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -358,7 +359,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test //TODO: fix
     public void OperatorLexemeAnalyzerTest_AND_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("& & qs");
+        buffer.put("& & qs".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -370,7 +371,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_OR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("|| ! ");
+        buffer.put("|| ! ".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -382,7 +383,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test //TODO: fix
     public void OperatorLexemeAnalyzerTest_OR_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("| | s");
+        buffer.put("| | s".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -394,7 +395,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_NOT() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("!\"");
+        buffer.put("!\"".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();
@@ -406,7 +407,7 @@ public class OperatorLexemeAnalyzerTest {
     @Test
     public void OperatorLexemeAnalyzerTest_NOT_ERROR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("-!fqw");
+        buffer.put("-!fqw".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         OperatorLexemeAnalyzer ola = new OperatorLexemeAnalyzer();

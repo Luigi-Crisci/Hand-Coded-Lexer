@@ -3,7 +3,10 @@ package lexer;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
 
@@ -20,7 +23,7 @@ public class IdentifierLexemeAnalyzerTest {
     public void IdentifierLexemeAnalyzerTest_ComplexVar() {
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("var_1av2c <-- 10");
+        buffer.put("var_1av2c <-- 10".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         IdentifierLexemeAnalyzer ila = new IdentifierLexemeAnalyzer();
@@ -33,7 +36,7 @@ public class IdentifierLexemeAnalyzerTest {
     public void IdentifierLexemeAnalyzerTest_ComplexVar2() {
 
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("va1_1_1r_1av2c <-- 10");
+        buffer.put("va1_1_1r_1av2c <-- 10".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         IdentifierLexemeAnalyzer ila = new IdentifierLexemeAnalyzer();
@@ -45,7 +48,7 @@ public class IdentifierLexemeAnalyzerTest {
     @Test
     public void IdentifierLexemeAnalyzerTest_SimpleVar() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("var<-- 10");
+        buffer.put(new String("var=").getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         IdentifierLexemeAnalyzer ila = new IdentifierLexemeAnalyzer();
@@ -57,7 +60,7 @@ public class IdentifierLexemeAnalyzerTest {
     @Test
     public void IdentifierLexemeAnalyzerTest_ERR() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("var.1 var2");
+        buffer.put("var.1 var2".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         IdentifierLexemeAnalyzer ila = new IdentifierLexemeAnalyzer();
@@ -69,7 +72,7 @@ public class IdentifierLexemeAnalyzerTest {
     @Test
     public void IdentifierLexemeAnalyzerTest_ERR_NumStart() {
         ByteBuffer buffer = ByteBuffer.allocate(4096);
-        buffer.asCharBuffer().put("1var");
+        buffer.put("1var".getBytes(StandardCharsets.UTF_8));
         buffer.rewind();
 
         IdentifierLexemeAnalyzer ila = new IdentifierLexemeAnalyzer();
