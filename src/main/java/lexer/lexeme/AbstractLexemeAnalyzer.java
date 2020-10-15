@@ -45,8 +45,6 @@ public abstract class AbstractLexemeAnalyzer {
 
     protected RecognizedToken constructToken(Tokens tokenName) {
 
-        if (tokenName.equals(Tokens.ERROR))
-            numCharRead = -1; // -1 to make it the smallest token among all others
         Token t = new Token(tokenName.toString(), stringBuffer.toString().trim());
         RecognizedToken recognizedToken = new RecognizedToken(t, numCharRead);
         clear();

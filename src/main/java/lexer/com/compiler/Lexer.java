@@ -7,7 +7,6 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import lexer.lexeme.AbstractLexemeAnalyzer;
 import lexer.utils.LexemeAnalyzerLoader;
@@ -66,8 +65,6 @@ public class Lexer {
 	}
 
 	private void consumeCharacterReadFromBuffer(RecognizedToken recognizedToken) {
-		if (LexerUtils.isError(recognizedToken.token.getName()))
-			recognizedToken.character_read = 1;
 		buffer.position(recognizedToken.character_read);
 		buffer = buffer.compact();
 		buffer.rewind();

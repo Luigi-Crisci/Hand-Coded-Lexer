@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3d89ab54-3f46-4d05-8517-7b56d747c4fd" name="Default Changelist" comment="Project structure update">
+      <change afterPath="$PROJECT_DIR$/img/ID_DFA.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/NUM_DFA.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/OP_DFA.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/SEP_DFA.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/STR_DFA.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testfiles/testfile_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/com/compiler/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/com/compiler/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/com/compiler/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/com/compiler/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/lexeme/AbstractLexemeAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/lexeme/AbstractLexemeAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/lexeme/IdentifierLexemeAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/lexeme/IdentifierLexemeAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/lexeme/NumberLexemeAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/lexeme/NumberLexemeAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/lexeme/OperatorLexemeAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/lexeme/OperatorLexemeAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/lexeme/SeparatorLexemeAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/lexeme/SeparatorLexemeAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/lexeme/StringLexemeAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/lexeme/StringLexemeAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lexer/utils/RecognizedToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lexer/utils/RecognizedToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lexer/IdentifierLexemeAnalyzerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lexer/IdentifierLexemeAnalyzerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lexer/LexerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lexer/LexerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/lexer/StringLexemeAnalyzerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lexer/StringLexemeAnalyzerTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1igpmqjnlakogpCBmrqHpUSDPYL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/testfiles" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\luigi\Google Drive\intellij-workspace\Crisci-Cuccurullo_es1_HCL\testfiles" />
+      <recent name="C:\Users\luigi\Google Drive\intellij-workspace\Crisci-Cuccurullo_es1_HCL\src\com\compiler" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Test2_error_with_string">
+    <list>
+      <item itemvalue="Application.Test1_correct" />
+      <item itemvalue="Application.Test2_error_with_string" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3d89ab54-3f46-4d05-8517-7b56d747c4fd" name="Default Changelist" comment="" />
+      <created>1602339253161</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602339253161</updated>
+      <workItem from="1602339254979" duration="1438000" />
+      <workItem from="1602340848615" duration="5457000" />
+      <workItem from="1602348114770" duration="17000" />
+      <workItem from="1602446595539" duration="8122000" />
+      <workItem from="1602797943323" duration="88000" />
+      <workItem from="1602798041849" duration="2815000" />
+      <workItem from="1602801198320" duration="3000" />
+      <workItem from="1602801373851" duration="158000" />
+    </task>
+    <task id="LOCAL-00001" summary="Project structure update">
+      <created>1602340748673</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602340748673</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project structure update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project structure update" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="249" y="0" key="#Project_Structure" timestamp="1602798382776">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1602798382776" />
+    <state x="447" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602801473890">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="447" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602801473890" />
+    <state x="529" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602799606952">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="529" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1602799606952" />
+    <state x="772" y="160" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1602799126759">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="772" y="160" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1602799126759" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1602451690366">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1602451690366" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602798000079">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602798000079" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1602800863070">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602800863070" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1602800863070">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602800863070" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1602800863069">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602800863069" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1602800863070">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602800863070" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1602800863071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602800863071" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1602800863071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1602800863071" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1602800863070">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1602800863070" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1602800863071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602800863071" />
+    <state x="584" y="346" key="ReplaceDuplicatesPrompt" timestamp="1602451809342">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="584" y="346" key="ReplaceDuplicatesPrompt/0.0.1536.824@0.0.1536.824" timestamp="1602451809342" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1602798245266">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602798245266" />
+    <state x="499" y="176" key="extract.method.dialog" timestamp="1602451804542">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="176" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1602451804542" />
+    <state x="478" y="11" width="579" height="801" key="find.popup" timestamp="1602449267491">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1602449267491" />
+    <state x="570" y="318" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602340649202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="570" y="318" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602340649202" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1602799788378">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1602799788378" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602449807644">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602449807644" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Crisci_Cuccurullo_es1_HCL$Main.ic" NAME="Main Coverage Results" MODIFIED="1602799567713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Crisci_Cuccurullo_es1_HCL$Test1_correct.ic" NAME="Test1_correct Coverage Results" MODIFIED="1602800771243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Crisci_Cuccurullo_es1_HCL$Test2_error_with_string.ic" NAME="Test2_error_with_string Coverage Results" MODIFIED="1602800787622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 475.7 385.3" style="enable-background:new 0 0 475.7 385.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;}
+	.st1{font-family:'TimesNewRomanPSMT';}
+	.st2{font-size:20px;}
+	.st3{stroke:#000000;}
+	.st4{font-family:'MyriadPro-Regular';}
+	.st5{font-size:12px;}
+</style>
+<ellipse class="st0" cx="333.5" cy="349.8" rx="30" ry="30"/>
+<text transform="matrix(1 0 0 1 315.4787 355.841)" class="st1 st2">STR</text>
+<ellipse class="st0" cx="333.5" cy="349.8" rx="24" ry="24"/>
+<ellipse class="st0" cx="333.5" cy="115.8" rx="30" ry="30"/>
+<text transform="matrix(1 0 0 1 314.4787 121.841)" class="st1 st2">ERR</text>
+<ellipse class="st0" cx="333.5" cy="115.8" rx="24" ry="24"/>
+<ellipse class="st0" cx="110.5" cy="115.8" rx="30" ry="30"/>
+<ellipse class="st0" cx="110.5" cy="349.8" rx="30" ry="30"/>
+<path class="st3" d="M140.5,115.8h163H140.5z"/>
+<polygon points="303.5,115.8 295.5,110.8 295.5,120.8 "/>
+<text transform="matrix(1 0 0 1 201.4787 136.841)" class="st1 st2">other</text>
+<path class="st0" d="M87.1,368.4c-5,11.4-18.3,16.5-29.7,11.5c-11.4-5-16.5-18.3-11.5-29.7c5-11.4,18.3-16.5,29.7-11.5
+	c2.2,1,4.2,2.2,5.9,3.8"/>
+<text transform="matrix(1 0 0 1 19.4787 373.841)" class="st1 st2">^&quot;</text>
+<polygon points="81.5,342.6 76.2,334.7 72.2,343.9 "/>
+<path class="st3" d="M110.5,145.8v174V145.8z"/>
+<polygon points="110.5,319.8 115.5,311.8 105.5,311.8 "/>
+<text transform="matrix(1 0 0 1 97.4787 238.841)" class="st1 st2">&quot;</text>
+<path class="st3" d="M140.5,349.8h163H140.5z"/>
+<polygon points="303.5,349.8 295.5,344.8 295.5,354.8 "/>
+<text transform="matrix(1 0 0 1 217.4787 370.841)" class="st1 st2">&quot;</text>
+<path class="st3" d="M58.5,28.8l36.6,61.2L58.5,28.8z"/>
+<text transform="matrix(1 0 0 1 19.4787 19.841)" class="st1 st2">start</text>
+<polygon points="95.1,90.1 95.3,80.7 86.7,85.8 "/>
+<text transform="matrix(1 0 0 1 374.2981 119.3411)" class="st4 st5">return ( ERR )</text>
+<text transform="matrix(1 0 0 1 374.2981 349.841)" class="st4 st5">return ( STR,value )</text>
+</svg>

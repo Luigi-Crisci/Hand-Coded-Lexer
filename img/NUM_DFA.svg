@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 800 600" style="enable-background:new 0 0 800 600;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;}
+	.st1{font-family:'TimesNewRomanPSMT';}
+	.st2{font-size:20px;}
+	.st3{stroke:#000000;}
+	.st4{font-family:'MyriadPro-Regular';}
+	.st5{font-size:12px;}
+</style>
+<ellipse class="st0" cx="152.5" cy="273.5" rx="30" ry="30"/>
+<ellipse class="st0" cx="290.5" cy="119.5" rx="30" ry="30"/>
+<ellipse class="st0" cx="290.5" cy="430.5" rx="30" ry="30"/>
+<ellipse class="st0" cx="483.5" cy="273.5" rx="30" ry="30"/>
+<ellipse class="st0" cx="290.5" cy="273.5" rx="30" ry="30"/>
+<text transform="matrix(1 0 0 1 273.5 279.5)" class="st1 st2">INT</text>
+<ellipse class="st0" cx="290.5" cy="273.5" rx="24" ry="24"/>
+<ellipse class="st0" cx="613.5" cy="145.5" rx="30" ry="30"/>
+<ellipse class="st0" cx="737.5" cy="273.5" rx="30" ry="30"/>
+<text transform="matrix(1 0 0 1 720.5 279.5)" class="st1 st2">FLT</text>
+<ellipse class="st0" cx="737.5" cy="273.5" rx="24" ry="24"/>
+<ellipse class="st0" cx="152.5" cy="430.5" rx="30" ry="30"/>
+<text transform="matrix(1 0 0 1 133.5 436.5)" class="st1 st2">ERR</text>
+<ellipse class="st0" cx="152.5" cy="430.5" rx="24" ry="24"/>
+<path class="st3" d="M57.5,273.5h65H57.5z"/>
+<text transform="matrix(1 0 0 1 18.5 279.5)" class="st1 st2">start</text>
+<polygon points="122.5,273.5 114.5,268.5 114.5,278.5 "/>
+<path class="st0" d="M152.9,243.6c7.1-58.8,50.2-106.9,107.9-120.4"/>
+<polygon points="260.8,123.2 251.9,120.1 254.1,129.9 "/>
+<text transform="matrix(1 0 0 1 142.5 157.5)" class="st1 st2">[1-9]</text>
+<path class="st3" d="M172.3,296L270.7,408L172.3,296z"/>
+<polygon points="270.7,408 269.2,398.7 261.7,405.3 "/>
+<text transform="matrix(1 0 0 1 206.5 372.5)" class="st1 st2">0</text>
+<path class="st3" d="M313.8,411.6l146.5-119.1L313.8,411.6z"/>
+<polygon points="460.2,292.4 450.9,293.6 457.2,301.4 "/>
+<text transform="matrix(1 0 0 1 376.5 343.5)" class="st1 st2">.</text>
+<path class="st3" d="M314,138.2L460,254.8L314,138.2z"/>
+<polygon points="460,254.8 456.9,245.9 450.7,253.7 "/>
+<text transform="matrix(1 0 0 1 392.5 187.5)" class="st1 st2">.</text>
+<path class="st0" d="M277.3,92.7c-10.1-7.3-12.3-21.4-5-31.4c7.3-10.1,21.4-12.3,31.4-5s12.3,21.4,5,31.4c-1.4,1.9-3.1,3.6-5,5"/>
+<text transform="matrix(1 0 0 1 270.5 43.5)" class="st1 st2">[0-9]</text>
+<polygon points="303.7,92.7 312.5,89.2 304.4,83.3 "/>
+<path class="st3" d="M290.5,149.5v94V149.5z"/>
+<polygon points="290.5,243.5 295.5,235.5 285.5,235.5 "/>
+<text transform="matrix(1 0 0 1 234.5 202.5)" class="st1 st2">other*</text>
+<path class="st3" d="M504.9,252.5l87.2-85.9L504.9,252.5z"/>
+<polygon points="592.1,166.5 582.9,168.6 589.9,175.7 "/>
+<text transform="matrix(1 0 0 1 503.5 200.5)" class="st1 st2">[0-9]</text>
+<path class="st0" d="M600.3,118.7c-10.1-7.3-12.3-21.4-5-31.4s21.4-12.3,31.4-5s12.3,21.4,5,31.4c-1.4,1.9-3.1,3.6-5,5"/>
+<text transform="matrix(1 0 0 1 593.5 69.5)" class="st1 st2">[0-9]</text>
+<polygon points="626.7,118.7 635.5,115.2 627.4,109.3 "/>
+<path class="st3" d="M634.4,167l82.3,84.9L634.4,167z"/>
+<polygon points="716.6,252 714.7,242.7 707.5,249.7 "/>
+<text transform="matrix(1 0 0 1 680.5 200.5)" class="st1 st2">other*</text>
+<path class="st3" d="M152.5,303.5v97V303.5z"/>
+<polygon points="152.5,400.5 157.5,392.5 147.5,392.5 "/>
+<text transform="matrix(1 0 0 1 106.5 358.5)" class="st1 st2">other</text>
+<path class="st3" d="M290.5,400.5v-97V400.5z"/>
+<polygon points="290.5,303.5 285.5,311.5 295.5,311.5 "/>
+<text transform="matrix(1 0 0 1 295.5 358.5)" class="st1 st2">other*</text>
+<path class="st3" d="M453.5,273.5h-133H453.5z"/>
+<polygon points="320.5,273.5 328.5,278.5 328.5,268.5 "/>
+<text transform="matrix(1 0 0 1 356.5 264.5)" class="st1 st2">other**</text>
+<text transform="matrix(1 0 0 1 138.7021 489.0843)" class="st4 st5">return ( ERR )</text>
+<text transform="matrix(1 0 0 1 193.8512 245.891)" class="st4 st5">return ( INT,val )</text>
+<text transform="matrix(1 0 0 1 693.2551 318.0205)" class="st4 st5">return ( FLOAT,val )</text>
+</svg>

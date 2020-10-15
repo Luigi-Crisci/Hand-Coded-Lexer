@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test2_error_with_string" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="11" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="lexer.com.compiler.Tester" />
+    <module name="Crisci-Cuccurullo_es1_HCL" />
+    <option name="PROGRAM_PARAMETERS" value="&quot;$ProjectFileDir$/testfiles/testfile_2&quot;" />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

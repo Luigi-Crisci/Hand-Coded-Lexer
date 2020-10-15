@@ -1,6 +1,5 @@
 package lexer;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.nio.ByteBuffer;
@@ -9,7 +8,6 @@ import java.nio.charset.StandardCharsets;
 import org.junit.Test;
 
 import lexer.com.compiler.Token;
-import lexer.lexeme.NumberLexemeAnalyzer;
 import lexer.lexeme.StringLexemeAnalyzer;
 import lexer.utils.RecognizedToken;
 import lexer.utils.Tokens;

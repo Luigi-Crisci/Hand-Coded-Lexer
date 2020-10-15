@@ -20,8 +20,10 @@ public class StringLexemeAnalyzer extends AbstractLexemeAnalyzer {
 			switch(state){
 				case 0:{
 					nextChar(buffer);
-					if(LexerUtils.isBlank(readChar))
-						continue;
+					if (LexerUtils.isBlank(readChar)){
+                        stringBuffer.deleteCharAt(0);
+                        continue;
+                    }
 					if(readChar.equals("\"")){
 						state = 1;
 						continue;

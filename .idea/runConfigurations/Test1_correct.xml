@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test1_correct" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="lexer.com.compiler.Tester" />
+    <module name="Crisci-Cuccurullo_es1_HCL" />
+    <option name="PROGRAM_PARAMETERS" value="&quot;$ProjectFileDir$/testfiles/testfile_1&quot;" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

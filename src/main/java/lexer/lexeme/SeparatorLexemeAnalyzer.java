@@ -17,8 +17,10 @@ public class SeparatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
 			switch (state) {
 				case 0: {
 					nextChar(buffer);
-					if (LexerUtils.isBlank(readChar))
-						continue;
+					if (LexerUtils.isBlank(readChar)){
+                        stringBuffer.deleteCharAt(0);
+                        continue;
+                    }
 					if (readChar.equals("("))
 						return constructToken(Tokens.L_PAR);
 					if (readChar.equals(")"))

@@ -15,8 +15,10 @@ public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
             switch (state) {
                 case 0: { // Initial state
                     nextChar(buffer);
-                    if (LexerUtils.isBlank(readChar))
+                    if (LexerUtils.isBlank(readChar)){
+                        stringBuffer.deleteCharAt(0);
                         continue;
+                    }
                     if (LexerUtils.isDigit(readChar)) {
                         if (readChar.equals("0"))
                             state = 1;

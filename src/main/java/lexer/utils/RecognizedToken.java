@@ -1,5 +1,6 @@
 package lexer.utils;
 
+import lexer.com.compiler.Lexer;
 import lexer.com.compiler.Token;
 
 public class RecognizedToken {
@@ -18,10 +19,11 @@ public class RecognizedToken {
     }
 
     public int compareTo(RecognizedToken token1){
-        if(character_read > token1.character_read)
-            return 1;
-        if(character_read < token1.character_read)
+        if(!LexerUtils.isError(token1.token.getName()) && LexerUtils.isError(token.getName()))
             return -1;
-        return 0;
+        if (!LexerUtils.isError(token.getName()) && LexerUtils.isError(token1.token.getName()))
+            return 1;
+
+        return Integer.compare(character_read, token1.character_read);
     }
 }
