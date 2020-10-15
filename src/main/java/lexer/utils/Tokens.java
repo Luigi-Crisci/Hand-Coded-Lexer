@@ -18,6 +18,7 @@ public enum Tokens {
     R_CURLY,
     COLON,
     S_COLON,
+    STRING,
     ERROR,
     EMPTY;
 

@@ -70,4 +70,8 @@ public class LexerUtils {
     public static boolean isEmpty(Token t) {
 		return EMPTY_TOKEN.equals(t);
     }
+
+    public static boolean isBufferEmpty(char c){
+        return ((byte) c) == ((byte)0);
+    }
 }
