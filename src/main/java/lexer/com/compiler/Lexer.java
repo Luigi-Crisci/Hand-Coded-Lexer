@@ -10,6 +10,7 @@ import java.util.Set;
 
 import lexer.lexeme.AbstractLexemeAnalyzer;
 import lexer.utils.LexemeAnalyzerLoader;
+import lexer.utils.LexerUtils;
 import lexer.utils.RecognizedToken;
 import lexer.utils.Tokens;
 
@@ -45,21 +46,29 @@ public class Lexer {
 		buffer.rewind();
 
 		RecognizedToken recognizedToken;
-		recognizedToken = analyzers.stream().map(e -> e.check(buffer.asReadOnlyBuffer())).max((token1,token2) -> {
-			int res = token1.compareTo(token2); //First we compare token length
-			if( res == 0 )
-				res = token1.token.compareTo(token2.token); //If equals, the chose is based on token priority
-			return res;
-		}).get(); 
+		recognizedToken = analyzers.stream()
+									.map(e -> e.check(buffer.asReadOnlyBuffer()))
+									.max((token1,token2) -> {
+											int res = token1.compareTo(token2); //First we compare token length
+											if( res == 0 )
+												res = token1.token.compareTo(token2.token); //If equals, the chose is based on token priority
+											return res;
+									}).get(); 
 
 		//Consume characters
-		buffer.position(recognizedToken.character_read);
-		buffer = buffer.compact();
-		buffer.rewind();
+		consumeCharacterReadFromBuffer(recognizedToken);							
 
 		installID(recognizedToken.token);
 
 		return recognizedToken.token;
+	}
+
+	private void consumeCharacterReadFromBuffer(RecognizedToken recognizedToken) {
+		if(LexerUtils.isError(recognizedToken.token.getName()))
+			recognizedToken.character_read = 1;
+		buffer.position(recognizedToken.character_read);
+		buffer = buffer.compact();
+		buffer.rewind();
 	}
 
 	private void installID(Token token) {

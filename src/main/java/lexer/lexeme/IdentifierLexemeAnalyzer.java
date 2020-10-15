@@ -34,7 +34,7 @@ public class IdentifierLexemeAnalyzer extends AbstractLexemeAnalyzer {
     @Override
     protected RecognizedToken constructToken(Tokens tokenName) {
         if (LexerUtils.isKeyword(stringBuffer.toString()))
-            return super.constructToken(Tokens.valueOf(stringBuffer.toString()));
+            return super.constructToken(Tokens.valueOf(stringBuffer.toString().toUpperCase()));
         else
             return super.constructToken(tokenName);
     }

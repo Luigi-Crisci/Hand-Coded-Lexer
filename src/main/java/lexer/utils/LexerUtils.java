@@ -60,4 +60,8 @@ public class LexerUtils {
     public static CharSequence charToCharSequence(char c) {
         return "" + c;
     }
+
+	public static boolean isError(String name) {
+		return Tokens.ERROR.equals(Tokens.valueOf(name));
+	}
 }
