@@ -62,7 +62,7 @@ This Lexer implementation recognizes the following Tokens:
   </details>
   </br>
   
-  - Strings:
+- Strings:
     - *STR:* *"[^"]"*
   <details>
   <summary>STR Finite State Machine</summary>
@@ -106,7 +106,7 @@ This Lexer implementation recognizes the following Tokens:
   - *R_CUR*: *}*
   - *COM*: *,*
   - *S_COM*: *;*
-  - *
+  
 
   <details>
   <summary>SEP Finite State Machine</summary>
