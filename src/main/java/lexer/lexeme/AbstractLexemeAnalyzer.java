@@ -1,6 +1,5 @@
 package lexer.lexeme;
 
-import java.lang.ref.Cleaner.Cleanable;
 import java.nio.ByteBuffer;
 import lexer.com.compiler.*;
 import lexer.utils.LexerUtils;

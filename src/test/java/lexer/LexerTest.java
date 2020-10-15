@@ -7,6 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import org.junit.After;
 import org.junit.Before;
@@ -58,6 +59,13 @@ public class LexerTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Test
+    public void Tester() {
+        String[] s = {"aaaaa","testfile"};
+        Tester.main( s);
 
     }
 

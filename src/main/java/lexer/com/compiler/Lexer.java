@@ -44,10 +44,10 @@ public class Lexer {
 	public Token nextToken() throws Exception {
 
 		//TODO:Gestire la dimensione del buffer qui, controllando se per metà è vuoto e se contine EOF
-		if(!buffer.hasRemaining())
+		buffer.rewind();
+		if(isEmpty())
 			return EMPTY_TOKEN;
 		
-		buffer.rewind();
 
 		RecognizedToken recognizedToken;
 		recognizedToken = analyzers.stream()
@@ -59,7 +59,6 @@ public class Lexer {
 											return res;
 									}).get(); 
 
-		//Consume characters
 		consumeCharacterReadFromBuffer(recognizedToken);							
 
 		installID(recognizedToken.token);
@@ -91,5 +90,13 @@ public class Lexer {
 				e1.printStackTrace();
 			}
 		});
+	}
+
+	private boolean isEmpty(){
+		return buffer.asReadOnlyBuffer().get() == (char)0;
+	}
+
+	public StringTable getStringTable(){
+		return stringTable;
 	}
 }

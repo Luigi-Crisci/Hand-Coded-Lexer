@@ -49,6 +49,9 @@ For some of this, we have defined some simple regex:
   
 ### Class Structure
 
+![Questa è una immagine](link)
+
+
 In accord with a classic Lexer structure, we have defined a `Lexer` class, which wraps a `ByteBuffer` object referring to the source code target file.  
 The only method exposed is `getToken()`, which reads just enough characters from the buffer in order to recognize a `Token` object and return it to the caller.  
 
