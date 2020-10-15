@@ -27,7 +27,7 @@ public class LexerTest {
     public void initialize() {
         try {
             file = Files.createFile(file);
-            Files.write(file,"<111".getBytes());
+            Files.write(file,"<".getBytes());
 
         } catch (IOException e) {  
             e.printStackTrace();
@@ -56,7 +56,8 @@ public class LexerTest {
 
         Token t = new Token(Tokens.OP.name(), "<");
         try {
-            assertTrue("Tokens are equals", t.equals(l.nextToken()));
+            Token whosthis= l.nextToken();
+            assertTrue("Tokens are equals", t.equals(whosthis));
         } catch (Exception e) {
             e.printStackTrace();
         }
