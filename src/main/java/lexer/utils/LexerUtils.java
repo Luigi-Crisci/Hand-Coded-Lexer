@@ -11,6 +11,7 @@ public class LexerUtils {
     /**
      * Keywords tokens
      */
+    public static Token EMPTY_TOKEN;
     public static Token IF_TOKEN;
     public static Token THEN_TOKEN;
     public static Token ELSE_TOKEN;
@@ -24,6 +25,7 @@ public class LexerUtils {
         ELSE_TOKEN = new Token(Tokens.ELSE.name(),"");
         WHILE_TOKEN = new Token(Tokens.WHILE.name(),"");
         FOR_TOKEN = new Token(Tokens.FOR.name(),"");
+        EMPTY_TOKEN = new Token(Tokens.EMPTY.name(),"");
 
         keywordsTokens = new ArrayList<>();
         keywordsTokens.add(IF_TOKEN);
@@ -63,5 +65,9 @@ public class LexerUtils {
 
 	public static boolean isError(String name) {
 		return Tokens.ERROR.equals(Tokens.valueOf(name));
-	}
+    }
+    
+    public static boolean isEmpty(Token t) {
+		return EMPTY_TOKEN.equals(t);
+    }
 }

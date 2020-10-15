@@ -9,6 +9,8 @@ public class NumberLexemeAnalyzer extends AbstractLexemeAnalyzer {
     @Override
     public RecognizedToken check(ByteBuffer buffer) {
 
+        reset();
+
         while (true) {
             switch (state) {
                 case 0: { // Initial state

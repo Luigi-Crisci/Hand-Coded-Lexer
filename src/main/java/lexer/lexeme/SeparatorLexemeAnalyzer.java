@@ -10,6 +10,9 @@ public class SeparatorLexemeAnalyzer extends AbstractLexemeAnalyzer {
 
 	@Override
 	public RecognizedToken check(ByteBuffer buffer) {
+
+		reset();
+
 		while (true) {
 			switch (state) {
 				case 0: {

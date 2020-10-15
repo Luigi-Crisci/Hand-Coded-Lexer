@@ -13,6 +13,7 @@ import lexer.utils.LexemeAnalyzerLoader;
 import lexer.utils.LexerUtils;
 import lexer.utils.RecognizedToken;
 import lexer.utils.Tokens;
+import static lexer.utils.LexerUtils.EMPTY_TOKEN;
 
 public class Lexer {
 
@@ -43,6 +44,9 @@ public class Lexer {
 	public Token nextToken() throws Exception {
 
 		//TODO:Gestire la dimensione del buffer qui, controllando se per metà è vuoto e se contine EOF
+		if(!buffer.hasRemaining())
+			return EMPTY_TOKEN;
+		
 		buffer.rewind();
 
 		RecognizedToken recognizedToken;

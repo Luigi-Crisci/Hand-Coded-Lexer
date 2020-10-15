@@ -1,5 +1,6 @@
 package lexer.lexeme;
 
+import java.lang.ref.Cleaner.Cleanable;
 import java.nio.ByteBuffer;
 import lexer.com.compiler.*;
 import lexer.utils.LexerUtils;
@@ -19,32 +20,42 @@ public abstract class AbstractLexemeAnalyzer {
 
     public abstract RecognizedToken check(ByteBuffer buffer);
 
-    
     protected void retract() {
         retract(1);
     }
-    
+
     protected void retract(int n) {
         if (n <= 0)
-        return;
+            return;
         numCharRead -= n;
-        
+
         stringBuffer.delete(stringBuffer.length() - n, stringBuffer.length());
     }
-    
+
     protected void nextChar(ByteBuffer buffer) {
         char c = (char) buffer.get();
         stringBuffer.append(c);
         numCharRead++;
         readChar = LexerUtils.charToCharSequence(c);
-        
+
     }
-    
+
+    protected void reset(){
+        state = 0;
+    }
+
     protected RecognizedToken constructToken(Tokens tokenName) {
 
-        if( tokenName.equals(Tokens.ERROR) )
-            numCharRead = -1; //-1 to make it the smallest token among all others
+        if (tokenName.equals(Tokens.ERROR))
+            numCharRead = -1; // -1 to make it the smallest token among all others
         Token t = new Token(tokenName.toString(), stringBuffer.toString().trim());
-        return new RecognizedToken(t, numCharRead);
+        RecognizedToken recognizedToken = new RecognizedToken(t, numCharRead);
+        clear();
+        return recognizedToken;
+    }
+
+    protected void clear() {
+        numCharRead = 0;
+        stringBuffer.delete(0, stringBuffer.length());
     }
 }
