@@ -3,15 +3,10 @@ package lexer;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.nio.file.attribute.FileAttribute;
-import java.util.Arrays;
 
 import org.junit.After;
 import org.junit.Before;
@@ -28,7 +23,6 @@ public class LexerTest {
         try {
             file = Files.createFile(file);
             Files.write(file,"<111".getBytes());
-
         } catch (IOException e) {  
             e.printStackTrace();
         }
@@ -56,7 +50,7 @@ public class LexerTest {
 
         Token t = new Token(Tokens.OP.name(), "<");
         try {
-            assertTrue("Tokens are equals", t.equals(l.nextToken()));
+            assertTrue("Tokens are not equals", t.equals(l.nextToken()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,7 +60,7 @@ public class LexerTest {
     @After
     public void clean(){
         try {
-            Files.delete(Paths.get("testfile"));
+            Files.delete(file);
         } catch (IOException e) {
             e.printStackTrace();
         }

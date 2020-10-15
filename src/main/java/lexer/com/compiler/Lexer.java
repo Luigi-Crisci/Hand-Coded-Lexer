@@ -45,7 +45,7 @@ public class Lexer {
 		buffer.rewind();
 
 		RecognizedToken recognizedToken;
-		recognizedToken = analyzers.stream().map(e -> e.check(buffer.asReadOnlyBuffer())).min((token1,token2) -> {
+		recognizedToken = analyzers.stream().map(e -> e.check(buffer.asReadOnlyBuffer())).max((token1,token2) -> {
 			int res = token1.compareTo(token2); //First we compare token length
 			if( res == 0 )
 				res = token1.token.compareTo(token2.token); //If equals, the chose is based on token priority
