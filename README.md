@@ -128,9 +128,26 @@ The `Lexer` object uses a support structure `StringTable`, which is a simple red
 
 > For example, if a string *"variable"* is found and saved in the `StringTable` at position 0, a `Token`  *<ID,0>* will be returned to the caller.
 
+### Recognize technique  
+
+The recognition phase is "*greedy*": the analyzer read characters from the buffer and returns **the correct token found before the error**.
+
+> For example, if the string "053" is analyzed by the NumberLexemeAnalyzer, it will return the token <INT,0> because "0" is the correct token recognized before reading the character "5" (an INT cannot start with 0, except if is exactly the number 0) 
+
+If no token were recognized before getting in an error state (for example, when the first character read does not match any accepted pattern), an `ERROR` token is returned to the caller.
+
 Two causes of failure have been dealt with during the lexical analysis: 
 - firstly, the character sequence that has been analyzed does not match any of the patterns, in which case an `ERROR` Token object is returned to the caller;
 - secondly, at the very end of the analysis, the Buffer object on which the Lexer is operating will be empty and a static `EMPTY TOKEN` object is returned to the caller. This will prevent infinite loops and the whole process will terminate.
+
+### Clarification about REGEX
+
+While the assignment paper for this work explicitly banned **Regex** for token recognition, there are section of this program that use Regex.  
+Nevertheless, the usage of Regex is this program is limited to a simple character recognition phase, in which is checked if a character belongs to a set of characters.
+
+> For example, to check if the character 'a' belongs to the set [a-zA-Z] (all the letters)
+
+Thus the usage of regex does not have impact the original, finite state machine-based, recognition technique required
 
 ## Authors
 - *Luigi Crisci*
