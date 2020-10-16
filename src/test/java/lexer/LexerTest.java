@@ -14,7 +14,6 @@ import org.junit.Before;
 import org.junit.Test;
 import lexer.com.compiler.*;
 import lexer.utils.LexerUtils;
-import lexer.utils.Tokens;
 
 public class LexerTest {
 
