@@ -1,6 +1,6 @@
 # Hand-Coded Lexer
 
-A simple java implementation of a Lexer in pure Java.
+A simple java implementation of a Lexer in pure Java, made for the course "Compiler" at  University of Salerno. 
 
 ## Build  
 
